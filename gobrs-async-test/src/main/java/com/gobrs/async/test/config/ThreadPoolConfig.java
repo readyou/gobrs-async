@@ -24,10 +24,11 @@ public class ThreadPoolConfig extends GobrsThreadPoolConfiguration {
         /**
          * 自定义线程池
          */
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(300, 500, 30, TimeUnit.SECONDS,
-                new LinkedBlockingQueue());
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(500, 1000, 30, TimeUnit.SECONDS,
+                new LinkedBlockingQueue(100000));
 
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        factory.setThreadPoolExecutor((ThreadPoolExecutor) executorService);
+//        ExecutorService executorService = Executors.newCachedThreadPool();
+//        factory.setThreadPoolExecutor((ThreadPoolExecutor) executorService);
+        factory.setThreadPoolExecutor(threadPoolExecutor);
     }
 }

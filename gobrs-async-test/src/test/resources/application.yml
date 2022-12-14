@@ -3,7 +3,30 @@ gobrs:
     config:
       rules:
         - name: "performance"
-          content: "taskA->taskB,TaskC->taskD->taskE,taskF"
+          content: "taskA,taskB->taskC->taskD,taskE"
+          logConfig:
+            costLogabled: false # 开启任务耗时打印 log日志级别需要为 error 默认true
+            errLogabled: true # 开启任务异常打印 默认true
+        - name: "performance1"
+          content: "taskA->taskB->taskC->taskD->taskF"
+          logConfig:
+            costLogabled: false # 开启任务耗时打印 log日志级别需要为 error 默认true
+            errLogabled: true # 开启任务异常打印 默认true
+        - name: "performance2"
+          content: "taskA->taskB->taskC->taskF;taskD,taskG->taskF;taskE->taskF;"
+          logConfig:
+            costLogabled: false # 开启任务耗时打印 log日志级别需要为 error 默认true
+            errLogabled: true # 开启任务异常打印 默认true
+        - name: "performance3"
+          content: "taskA->taskB->taskE->taskF;taskC->taskD->taskE->taskG"
+          logConfig:
+            costLogabled: false # 开启任务耗时打印 log日志级别需要为 error 默认true
+            errLogabled: true # 开启任务异常打印 默认true
+        - name: "performance4"
+          content: "taskA->taskB->taskD->taskF->taskG;taskA->taskC->taskD->taskE->taskG"
+          logConfig:
+            costLogabled: false # 开启任务耗时打印 log日志级别需要为 error 默认true
+            errLogabled: true # 开启任务异常打印 默认true
 
         # 规则 是数组类型的 多组规则
         - name: "general" # 猜想下面的流程 gobrs 会开启几个线程？ 注意看打印的日志哦～

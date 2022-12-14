@@ -18,9 +18,9 @@ public class TaskA extends AsyncTask {
     @SneakyThrows
     @Override
     public Object task(Object o, TaskSupport support) {
-        System.out.println("使用" + Thread.currentThread().getName());
-        Thread.sleep(100);
-        System.out.println("TaskA");
+//        System.out.println("使用" + Thread.currentThread().getName());
+        PUtil.sleep();
+//        System.out.println("TaskA");
         return null;
     }
 }

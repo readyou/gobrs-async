@@ -12,7 +12,6 @@ import com.gobrs.async.core.task.AsyncTask;
 import com.gobrs.async.core.task.TaskUtil;
 import com.gobrs.async.core.timer.GobrsTimer;
 import lombok.extern.slf4j.Slf4j;
-import org.omg.CORBA.INITIALIZE;
 import org.springframework.util.CollectionUtils;
 
 import java.lang.ref.Reference;

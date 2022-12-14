@@ -7,20 +7,21 @@ import lombok.SneakyThrows;
 
 /**
  * @program: performance-compare
- * @ClassName TaskB
+ * @ClassName TaskA
  * @description:
  * @author: sizegang
  * @create: 2022-12-09
  **/
 @Task
-public class TaskB extends AsyncTask {
+public class TaskG extends AsyncTask {
 
     @SneakyThrows
     @Override
     public Object task(Object o, TaskSupport support) {
 //        System.out.println("使用" + Thread.currentThread().getName());
-//        System.out.println("TaskB");
         PUtil.sleep();
+        PUtil.sleep();
+//        System.out.println("TaskF");
         return null;
     }
 }
