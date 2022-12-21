@@ -68,7 +68,7 @@
         List<Future> list = new ArrayList<>();
         for (AsyncTask asyncTask : paraExectors) {
             Future<?> submit = gobrsThreadPoolExecutor.submit(() -> {
-                asyncTask.com.gobrs.async.com.gobrs.async.test.task(dataContext, null);
+                asyncTask.com.heytap.ad.osync.com.heytap.ad.osync.test.task(dataContext, null);
             });
             list.add(submit);
         }
@@ -85,7 +85,7 @@
         List<Future> ser = new ArrayList<>();
         for (AsyncTask asyncTask : serExectors) {
             Future<?> submit = gobrsThreadPoolExecutor.submit(() -> {
-                asyncTask.com.gobrs.async.com.gobrs.async.test.task(dataContext, null);
+                asyncTask.com.heytap.ad.osync.com.heytap.ad.osync.test.task(dataContext, null);
             });
             ser.add(submit);
         }
@@ -171,8 +171,8 @@ Gobrs-Async 在开发时考虑了众多使用者的开发喜欢，对异常处�
 
 Gobrs-Async 项目目录及其精简
 
-- `gobrs-async-example`：Gobrs-Async 接入实例，提供测试用例。
-- `gobrs-async-starter`：Gobrs-Async 框架核心组件
+- `osync-example`：Gobrs-Async 接入实例，提供测试用例。
+- `osync-starter`：Gobrs-Async 框架核心组件
 
 
 

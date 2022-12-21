@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.heytap.ad.osync.core.autoconfig.OsyncAutoConfiguration,\
+com.heytap.ad.osync.core.autoconfig.OsyncPropertyAutoConfiguration

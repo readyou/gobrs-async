@@ -1,33 +1,31 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>gobrs-async</artifactId>
-    <groupId>io.github.memorydoc</groupId>
+    <artifactId>osync</artifactId>
+    <groupId>com.heytap.ad.show.performance</groupId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
-    <name>gobrs-async</name>
-    <description>🔥 强大异步任务编排工具（没有依赖中间件）</description>
-    <url>https://github.com/dromara/gobrs-async</url>
+    <name>osync</name>
+    <description>🔥 强大异步任务编排工具</description>
+    <url>http://gitlab.os.adc.com/80390613/osync</url>
 
     <modules>
-        <module>gobrs-async-common</module>
-        <module>gobrs-async-core</module>
-        <module>gobrs-async-starter</module>
-        <module>gobrs-async-example</module>
-        <module>gobrs-async-test</module>
-        <module>gobrs-async-plugin</module>
+        <module>osync-core</module>
+        <module>osync-starter</module>
+        <module>osync-example</module>
+        <module>osync-test</module>
     </modules>
 
     <properties>
-        <revision>1.2.8-RELEASE</revision>
+        <revision>0.0.1-SNAPSHOT</revision>
         <jdk.version>11</jdk.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <springboot.version>2.5.8</springboot.version>
-        <jackson.version>2.12.6</jackson.version>
+        <springboot.version>2.2.7.RELEASE</springboot.version>
+        <jackson.version>2.10.4</jackson.version>
         <lombok.version>1.18.22</lombok.version>
         <ttl.version>2.11.2</ttl.version>
     </properties>
@@ -43,34 +41,30 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>io.github.memorydoc</groupId>
-                <artifactId>gobrs-async-starter</artifactId>
+                <groupId>com.heytap.ad.show.performance</groupId>
+                <artifactId>osync-starter</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.memorydoc</groupId>
-                <artifactId>gobrs-async-core</artifactId>
+                <groupId>com.heytap.ad.show.performance</groupId>
+                <artifactId>osync-core</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.memorydoc</groupId>
-                <artifactId>gobrs-async-common</artifactId>
+                <groupId>com.heytap.ad.show.performance</groupId>
+                <artifactId>osync-example</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>io.github.memorydoc</groupId>
-                <artifactId>gobrs-async-example</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.memorydoc</groupId>
-                <artifactId>gobrs-async-test</artifactId>
+                <groupId>com.heytap.ad.show.performance</groupId>
+                <artifactId>osync-test</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -90,7 +84,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -101,27 +95,27 @@
                 </executions>
             </plugin>
             <!-- mvn javadoc:jar -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                        <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--                <version>3.4.1</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>attach-javadocs</id>-->
+<!--                        <goals>-->
+<!--                            <goal>jar</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <additionalparam>-Xdoclint:none</additionalparam>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.2.2</version>
+                <version>3.3.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -141,7 +135,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.2.1</version>
                 <configuration>
                     <attach>true</attach>
                 </configuration>
@@ -154,26 +148,7 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>3.7.1</version>
-            </plugin>
-            <!-- Gpg Signature -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+
             <!-- version number -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -203,40 +178,16 @@
         </plugins>
     </build>
 
-
-    <licenses>
-        <license>
-            <name>The Apache Software License, Version 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-    <developers>
-        <developer>
-            <name>Memorydoc</name>
-            <email>17615195790@163.com</email>
-            <organization>Github</organization>
-        </developer>
-    </developers>
-    <scm>
-        <connection>scm:git:git@github.com:dromara/gobrs-async.git</connection>
-        <developerConnection>scm:git:git@github.com:dromara/gobrs-async.git</developerConnection>
-        <tag>master</tag>
-        <url>git@github.com:dromara/gobrs-async.git</url>
-    </scm>
-    <issueManagement>
-        <system>Github Issue</system>
-        <url>https://github.com/dromara/gobrs-async/issues</url>
-    </issueManagement>
-
     <distributionManagement>
         <repository>
-            <id>sonatype-nexus-staging</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <id>oppo-nexus-release</id>
+            <name>OPPO Nexus Release</name>
+            <url>http://nexus.os.adc.com/nexus/content/repositories/releases/</url>
         </repository>
         <snapshotRepository>
-            <id>sonatype-nexus-snapshots</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+            <id>oppo-nexus-snapshots</id>
+            <name>OPPO Nexus Snapshots</name>
+            <url>http://nexus.os.adc.com/nexus/content/repositories/snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
